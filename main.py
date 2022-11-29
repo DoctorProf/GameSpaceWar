@@ -9,11 +9,13 @@ def run():
     bgColor = (0,0,0)
     gun = Gun(screen)
     bullets = Group()
+    inos = Group()
+    Events.createArmy(screen, inos)
 
     while True:
         Events.event(screen, gun, bullets)
         gun.updateGun()
-        bullets.update()
-        Events.update(bgColor, screen, gun, bullets)
+        Events.update(bgColor, screen, gun, inos, bullets)
+        Events.updateBullets(bullets)
 
 run()
