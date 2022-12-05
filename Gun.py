@@ -1,8 +1,11 @@
 import pygame
+from pygame.sprite import Sprite
 
 class Gun():
 
     def __init__ (self, screen):
+
+        super(Gun, self).__init__()
         self.screen = screen
         self.image = pygame.image.load("image/Gun.png")
         self.rect = self.image.get_rect()
@@ -19,9 +22,9 @@ class Gun():
 
     def updateGun(self):
         if self.mright and self.rect.right < self.screenRect.right:
-            self.center += 0.6
+            self.center += 0.5
         if self.mleft and self.rect.left > self.screenRect.left:
-            self.center -= 0.6
+            self.center -= 0.5
 
         self.rect.centerx = self.center
 

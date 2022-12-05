@@ -2,6 +2,7 @@ import pygame, Events
 from Gun import Gun
 from pygame.sprite import Group
 from stats import Stats
+from scores import Score
 def run():
 
     pygame.init()
@@ -13,12 +14,16 @@ def run():
     inos = Group()
     Events.createArmy(screen, inos)
     stats = Stats()
+    sc = Score(screen, stats)
 
     while True:
         Events.event(screen, gun, bullets)
-        gun.updateGun()
-        Events.update(bgColor, screen, gun, inos, bullets)
-        Events.updateBullets(screen, inos, bullets)
-        Events.updateInos(stats, screen, gun, inos, bullets)
+
+        if stats.runGame == True:
+
+            gun.updateGun()
+            Events.update(bgColor, screen, stats, sc, gun, inos, bullets)
+            Events.updateBullets(screen,stats, sc, inos, bullets)
+            Events.updateInos(stats, screen, sc, gun, inos, bullets)
 
 run()

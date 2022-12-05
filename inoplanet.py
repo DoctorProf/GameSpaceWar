@@ -9,7 +9,7 @@ class Ino(pygame.sprite.Sprite):
         self.image = pygame.image.load('image/inopla.png')
         self.rect = self.image.get_rect()
         self.rect.x = self.rect.width
-        self.rect.y = self.rect.height
+        self.rect.y = self.rect.height 
         self.x = float(self.rect.x)
         self.y = float(self.rect.y)
     
@@ -19,5 +19,5 @@ class Ino(pygame.sprite.Sprite):
 
     def update(self):
 
-        self.y+=0.03
+        self.y+=0.015
         self.rect.y = self.y
